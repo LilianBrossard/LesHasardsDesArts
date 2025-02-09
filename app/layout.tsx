@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bruno_Ace_SC, Lato, Rouge_Script, Zen_Dots } from "next/font/google";
+import { Bruno_Ace_SC, Lato, Rouge_Script } from "next/font/google";
 import "./globals.css";
 
 // font-[family-name:var(--font-rouge)]
