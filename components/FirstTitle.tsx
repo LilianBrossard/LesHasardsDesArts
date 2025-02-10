@@ -6,11 +6,9 @@ import { AllLoadContext } from "@/context/AllLoadContext";
 import { LoaderContext } from "@/context/LoaderContext";
 import callApi from "@/components/CallApi";
 import ImageApi from "@/components/ImageApi";
+import ArrowDown from "@/components/ArrowDown";
 
 export default function FirstTitle() {
-  const Link1 = "/#";
-  const Link2 = "/#";
-  const Link3 = "/#";
   const RefArt1 = useRef<HTMLDivElement>(null);
   const RefArt2 = useRef<HTMLDivElement>(null);
   const RefArt3 = useRef<HTMLDivElement>(null);
@@ -56,10 +54,9 @@ export default function FirstTitle() {
     fetchData();
   }, []);
 
-  console.log(apiData);
-
   return (
     <div className="w-full h-screen relative overflow-hidden flex flex-row justify-center">
+      <ArrowDown />
       <h2 className="sr-only">The serendipitys of arts</h2>
       <h3 className="font-[family-name:var(--font-rouge)] w-max h-min text-slate-950 z-20 text-[11vw] all-transition duration-300 ease-in-out drop-shadow-lg">
         The Serendipitys of Arts
@@ -67,7 +64,7 @@ export default function FirstTitle() {
       <div className="w-full h-[146vh] -top-[23vh] flex flex-row gap-4 lg:gap-16 absolute skew-y-12">
         <div className="w-1/2 h-full flex flex-col gap-4 lg:gap-16">
           <Link
-            href={Link1}
+            href={"/artwork/" + apiData?.data[0]?.id || "#"}
             className="w-full h-3/5 overflow-hidden relative group cursor-none"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -89,7 +86,7 @@ export default function FirstTitle() {
             </div>
           </Link>
           <Link
-            href={Link2}
+            href={"/artwork/" + apiData?.data[1]?.id || "#"}
             className="w-full h-2/5 overflow-hidden relative group cursor-none"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -112,7 +109,7 @@ export default function FirstTitle() {
           </Link>
         </div>
         <Link
-          href={Link3}
+          href={"/artwork/" + apiData?.data[2]?.id || "#"}
           className="w-1/2 h-full overflow-hidden relative group cursor-none"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}

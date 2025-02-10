@@ -1,12 +1,12 @@
 "use client";
 
 interface CallApiProps {
-  id?: number;
+  id?: string;
 }
 
 const CallApi: React.FC<CallApiProps> = ({ id }) => {
 
-  const fetchArtwork = async (id?: number) => {
+  const fetchArtwork = async (id?: string) => {
     try {
       let url = "";
       if (id) {
