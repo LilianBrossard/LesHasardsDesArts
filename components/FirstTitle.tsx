@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { useRef, useEffect, useContext, useState } from "react";
 import { InteractionContext } from "@/context/InteractionContext";
+import { AllLoadContext } from "@/context/AllLoadContext";
+import { LoaderContext } from "@/context/LoaderContext";
 import callApi from "@/components/CallApi";
 import ImageApi from "@/components/ImageApi";
 
@@ -13,14 +15,20 @@ export default function FirstTitle() {
   const RefArt2 = useRef<HTMLDivElement>(null);
   const RefArt3 = useRef<HTMLDivElement>(null);
 
+  const loaderContext = useContext(LoaderContext);
+
   useEffect(() => {
-    RefArt1.current?.classList.add("translate-x-[0]");
-    RefArt2.current?.classList.add("translate-x-[0]");
-    RefArt3.current?.classList.add("translate-x-[0]");
-    RefArt1.current?.classList.remove("translate-x-[100%]");
-    RefArt2.current?.classList.remove("-translate-y-[100%]");
-    RefArt3.current?.classList.remove("-translate-x-[100%]");
-  }, []);
+    if (loaderContext?.loader) {
+      setTimeout(() => {
+        RefArt1.current?.classList.add("translate-x-[0]");
+        RefArt2.current?.classList.add("translate-x-[0]");
+        RefArt3.current?.classList.add("translate-x-[0]");
+        RefArt1.current?.classList.remove("translate-x-[100%]");
+        RefArt2.current?.classList.remove("-translate-y-[100%]");
+        RefArt3.current?.classList.remove("-translate-x-[100%]");
+      }, 700);
+    }
+  }, [loaderContext]);
 
   const interactionContext = useContext(InteractionContext);
   const handleMouseEnter = () => {
@@ -34,6 +42,7 @@ export default function FirstTitle() {
       interactionContext.setInteraction(false);
     }
   };
+  const allLoadContext = useContext(AllLoadContext);
 
   const [apiData, setApiData] = useState<any | null>(null);
 
@@ -41,6 +50,8 @@ export default function FirstTitle() {
     const fetchData = async () => {
       const result = await callApi({});
       setApiData(result);
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      allLoadContext?.setAllLoad(true);
     };
     fetchData();
   }, []);
@@ -55,8 +66,9 @@ export default function FirstTitle() {
       </h3>
       <div className="w-full h-[146vh] -top-[23vh] flex flex-row gap-4 lg:gap-16 absolute skew-y-12">
         <div className="w-1/2 h-full flex flex-col gap-4 lg:gap-16">
-          <div
-            className="w-full h-3/5 overflow-hidden relative group"
+          <Link
+            href={Link1}
+            className="w-full h-3/5 overflow-hidden relative group cursor-none"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
@@ -75,9 +87,10 @@ export default function FirstTitle() {
               </div>
               <div className="absolute w-full h-full scale-0 group-hover:scale-100 bg-red-200 opacity-30 all-transition duration-1000 ease-in-out"></div>
             </div>
-          </div>
-          <div
-            className="w-full h-2/5 overflow-hidden relative group"
+          </Link>
+          <Link
+            href={Link2}
+            className="w-full h-2/5 overflow-hidden relative group cursor-none"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
@@ -96,10 +109,11 @@ export default function FirstTitle() {
               </div>
               <div className="absolute w-full h-full scale-0 group-hover:scale-100 bg-red-200 opacity-30 all-transition duration-1000 ease-in-out"></div>
             </div>
-          </div>
+          </Link>
         </div>
-        <div
-          className="w-1/2 h-full overflow-hidden relative group"
+        <Link
+          href={Link3}
+          className="w-1/2 h-full overflow-hidden relative group cursor-none"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -118,7 +132,7 @@ export default function FirstTitle() {
             </div>
             <div className="absolute w-full h-full scale-0 group-hover:scale-100 bg-red-200 opacity-30 all-transition duration-1000 ease-in-out"></div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
