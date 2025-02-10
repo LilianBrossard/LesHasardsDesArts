@@ -12,8 +12,7 @@ const CallApi: React.FC<CallApiProps> = ({ id }) => {
       if (id) {
         url = `https://api.artic.edu/api/v1/artworks/${id}`;
       } else {
-        let randomId;
-        randomId = Math.floor(Math.random() * 12761) + 1;
+        const randomId = Math.floor(Math.random() * 12761) + 1;
         url = `https://api.artic.edu/api/v1/artworks?limit=10&page=${randomId}`;
       }
 

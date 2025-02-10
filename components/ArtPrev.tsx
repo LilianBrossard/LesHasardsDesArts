@@ -6,7 +6,6 @@ import ArrowDown from "@/components/ArrowDown";
 import { useParams } from "next/navigation";
 import { useRef, useEffect, useContext, useState } from "react";
 import { LoaderContext } from "@/context/LoaderContext";
-import { div } from "framer-motion/client";
 
 export default function ArtPrev() {
   const params = useParams<{ id: string }>();

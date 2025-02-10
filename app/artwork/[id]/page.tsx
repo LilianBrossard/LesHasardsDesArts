@@ -13,7 +13,7 @@ export default function Artwork() {
         <AllLoadProvider>
           <main className="w-full overflow-x-hidden cursor-none">
             <Cover />
-            <Link href="/">Retour à l'accueil</Link>
+            <Link href="/">Home</Link>
             <ArtPrev />
           </main>
         </AllLoadProvider>

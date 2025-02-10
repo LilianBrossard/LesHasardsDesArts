@@ -1,11 +1,10 @@
 "use client";
-import Nav from "@/components/Nav";
+// import Nav from "@/components/Nav";
 import FirstTitle from "@/components/FirstTitle";
 import Cover from "@/components/Cover";
 import { InteractionProvider } from "@/context/InteractionContext";
 import { LoaderProvider } from "@/context/LoaderContext";
 import { AllLoadProvider } from "@/context/AllLoadContext";
-import Link from "next/link";
 
 export default function Home() {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useContext, use } from "react";
+import { useRef, useEffect, useContext } from "react";
 import Image from "next/image";
 import { InteractionContext } from "@/context/InteractionContext";
 import { AllLoadContext } from "@/context/AllLoadContext";
