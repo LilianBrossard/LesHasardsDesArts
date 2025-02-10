@@ -12,7 +12,7 @@ export default function ArtPrev() {
   // Route -> /artwork/[id]
   const allLoadContext = useContext(AllLoadContext);
 
-  const [apiData, setApiData] = useState<any | null>(null);
+  const [apiData, setApiData] = useState<any>(null);
 
   useEffect(() => {
     const fetchData = async () => {
