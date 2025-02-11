@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useRef, useEffect, useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import { InteractionContext } from "@/context/InteractionContext";
 import callApi from "@/components/CallApi";
 import ImageApi from "@/components/ImageApi";
