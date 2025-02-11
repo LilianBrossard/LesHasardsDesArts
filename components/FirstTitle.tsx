@@ -70,7 +70,7 @@ export default function FirstTitle() {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className="w-full h-full bg-blue-200 relative all-transition duration-700 ease-out rounded-md translate-x-[100%]"
+              className="w-full h-full bg-orange-300 relative all-transition duration-700 ease-out rounded-md translate-x-[100%]"
               ref={RefArt1}
             >
               <div className="absolute w-full h-full rounded-md">
@@ -92,7 +92,7 @@ export default function FirstTitle() {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className="w-full h-full bg-blue-200 relative all-transition duration-700 ease-out rounded-md -translate-y-[100%]"
+              className="w-full h-full bg-orange-300 relative all-transition duration-700 ease-out rounded-md -translate-y-[100%]"
               ref={RefArt2}
             >
               <div className="absolute w-full h-full rounded-md">
@@ -115,7 +115,7 @@ export default function FirstTitle() {
           onMouseLeave={handleMouseLeave}
         >
           <div
-            className="w-full h-full bg-blue-200 relative all-transition duration-700 ease-out rounded-md -translate-x-[100%]"
+            className="w-full h-full bg-orange-300 relative all-transition duration-700 ease-out rounded-md -translate-x-[100%]"
             ref={RefArt3}
           >
             <div className="absolute w-full h-full rounded-md">
