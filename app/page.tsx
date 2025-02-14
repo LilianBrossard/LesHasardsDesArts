@@ -3,6 +3,7 @@
 import FirstTitle from "@/components/FirstTitle";
 import Cover from "@/components/Cover";
 import Grid from "@/components/Grid";
+import InfiniteScroll from "@/components/InfiniteScroll";
 import { InteractionProvider } from "@/context/InteractionContext";
 import { LoaderProvider } from "@/context/LoaderContext";
 import { AllLoadProvider } from "@/context/AllLoadContext";
@@ -18,6 +19,7 @@ export default function Home() {
             <FirstTitle />
             {/* <Nav /> */}
             <Grid />
+            <InfiniteScroll />
           </main>
         </AllLoadProvider>
       </LoaderProvider>
