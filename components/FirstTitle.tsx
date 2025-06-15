@@ -80,7 +80,7 @@ export default function FirstTitle() {
           </h4>
           <p className="w-full text-slate-950 text-[1.5em] z-20">
             Here are randomly selected works from 129 006 artworks referenced by
-            the museum's public data of the{" "}
+            the museum&apos;s public data of the{" "}
             <a
               href="https://www.artic.edu/"
               className="underline hover:bg-red-200 cursor-none transition-all duration-300 ease-in-out"
