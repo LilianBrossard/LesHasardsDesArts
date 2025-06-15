@@ -89,7 +89,7 @@ export default function FirstTitle() {
             >
               Art Institute of Chicago.
             </a>{" "}
-            I'll let you discover some that will touch you.
+            I&apos;ll let you discover some that will touch you.
           </p>
         </div>
         <Link
