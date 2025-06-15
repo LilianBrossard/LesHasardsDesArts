@@ -72,12 +72,13 @@ export default function Cover() {
   return (
     <div className="w-full h-screen overflow-hidden fixed z-50 pointer-events-none">
       <div
-        className="absolute w-full h-full bg-red-200 flex flex-row items-center justify-center all-transition duration-300 ease-in-out"
+        className="absolute w-full h-full bg-red-200 flex flex-col items-center justify-center all-transition duration-300 ease-in-out"
         ref={Loader}
       >
         <h3 className="font-[family-name:var(--font-rouge)] w-max h-min text-slate-950 z-20 text-[11vw] all-transition duration-300 ease-in-out drop-shadow-lg">
           The Serendipitys of Arts
         </h3>
+        <div className="w-20 h-20 border-8 border-t-red-600 border-orange-400 rounded-full animate-spin z-10"></div>
       </div>
       <div className="relative w-full h-full pointer-events-none">
         <div

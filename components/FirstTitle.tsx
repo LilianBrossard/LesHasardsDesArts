@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useRef, useEffect, useContext, useState } from "react";
 import { InteractionContext } from "@/context/InteractionContext";
@@ -55,80 +56,66 @@ export default function FirstTitle() {
   }, []);
 
   return (
-    <div className="w-full h-screen relative overflow-hidden flex flex-row justify-center">
+    <div className="w-full relative h-screen overflow-hidden flex flex-col justify-center">
       <ArrowDown />
       <h2 className="sr-only">The serendipitys of arts</h2>
-      <h3 className="font-[family-name:var(--font-rouge)] w-max h-min text-slate-950 z-20 text-[11vw] all-transition duration-300 ease-in-out drop-shadow-lg">
-        The Serendipitys of Arts
-      </h3>
-      <div className="w-full h-[146vh] -top-[23vh] flex flex-row gap-4 lg:gap-16 absolute skew-y-12">
-        <div className="w-1/2 h-full flex flex-col gap-4 lg:gap-16">
-          <Link
-            href={"/artwork/" + apiData?.data[0]?.id || "#"}
-            className="w-full h-3/5 overflow-hidden relative group cursor-none"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div
-              className="w-full h-full bg-orange-300 relative all-transition duration-700 ease-out rounded-md translate-x-[100%]"
-              ref={RefArt1}
+      <div className="w-full h-1/3 flex items-center justify-center relative">
+        <h3 className="font-[family-name:var(--font-rouge)]  text-slate-950 z-20 text-[11vw] all-transition duration-300 ease-in-out pointer-events-none">
+          The Serendipitys of Arts
+        </h3>
+      </div>
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 pointer-events-none -z-10">
+        <Image
+          src="/images/cerisier1.png"
+          alt="Cerisier"
+          fill
+          style={{ objectFit: "cover" }}
+          priority
+        />
+      </div>
+      <div className="w-full py-8 h-2/3 flex flex-row justify-around gap-4 lg:gap-16">
+        <div className="w-1/3 h-full overflow-hidden flex flex-col justify-center group">
+          <h4 className="w-full text-slate-950 text-[2.5vw] z-20">
+            The discovery of a side of art
+          </h4>
+          <p className="w-full text-slate-950 text-[1.5em] z-20">
+            Here are randomly selected works from 129 006 artworks referenced by
+            the museum's public data of the{" "}
+            <a
+              href="https://www.artic.edu/"
+              className="underline hover:bg-red-200 cursor-none transition-all duration-300 ease-in-out"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
-              <div className="absolute w-full h-full rounded-md">
-                {apiData && (
-                  <ImageApi
-                    image_id={apiData.data[0].image_id}
-                    title={apiData.data[0].title}
-                    specialeClass="object-cover"
-                  />
-                )}
-              </div>
-              <div className="absolute w-full h-full scale-0 group-hover:scale-100 bg-red-200 opacity-30 all-transition duration-1000 ease-in-out"></div>
-            </div>
-          </Link>
-          <Link
-            href={"/artwork/" + apiData?.data[1]?.id || "#"}
-            className="w-full h-2/5 overflow-hidden relative group cursor-none"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div
-              className="w-full h-full bg-orange-300 relative all-transition duration-700 ease-out rounded-md -translate-y-[100%]"
-              ref={RefArt2}
-            >
-              <div className="absolute w-full h-full rounded-md">
-                {apiData && (
-                  <ImageApi
-                    image_id={apiData.data[1].image_id}
-                    title={apiData.data[1].title}
-                    specialeClass="object-cover"
-                  />
-                )}
-              </div>
-              <div className="absolute w-full h-full scale-0 group-hover:scale-100 bg-red-200 opacity-30 all-transition duration-1000 ease-in-out"></div>
-            </div>
-          </Link>
+              Art Institute of Chicago.
+            </a>{" "}
+            I'll let you discover some that will touch you.
+          </p>
         </div>
         <Link
-          href={"/artwork/" + apiData?.data[2]?.id || "#"}
-          className="w-1/2 h-full overflow-hidden relative group cursor-none"
+          href={"/artwork/" + apiData?.data[0]?.id || "#"}
+          className="w-1/3 h-full overflow-hidden group relative cursor-none hover:scale-105 all-transition duration-300 ease-in-out"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
           <div
-            className="w-full h-full bg-orange-300 relative all-transition duration-700 ease-out rounded-md -translate-x-[100%]"
-            ref={RefArt3}
+            className="w-full h-full bg-orange-300 relative all-transition translate-x-[100%] duration-700 ease-out rounded-[3rem] shadow-2xl"
+            ref={RefArt1}
           >
-            <div className="absolute w-full h-full rounded-md">
+            <div className="absolute w-full h-full rounded-[3rem]">
               {apiData && (
                 <ImageApi
-                  image_id={apiData.data[2].image_id}
-                  title={apiData.data[2].title}
+                  image_id={apiData.data[0].image_id}
+                  title={apiData.data[0].title}
                   specialeClass="object-cover"
                 />
               )}
             </div>
-            <div className="absolute w-full h-full scale-0 group-hover:scale-100 bg-red-200 opacity-30 all-transition duration-1000 ease-in-out"></div>
+            <div className="absolute w-full h-full scale-0 rounded-[3rem] group-hover:scale-100 bg-red-200 opacity-30 all-transition duration-1000 ease-in-out"></div>
           </div>
+          <h4 className="absolute w-full bottom-0 p-4 bg-red-200 text-slate-950 text-[1.5em] z-20">
+            {apiData && apiData.data[0].title}
+          </h4>
         </Link>
       </div>
     </div>

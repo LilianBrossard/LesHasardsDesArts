@@ -20,7 +20,7 @@ export default function ImageApi({
     <img
       src={`https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`}
       alt={title}
-      className="w-full h-full rounded-md"
+      className="w-full h-full rounded-[3rem]"
       ref={RefImg}
     />
   );
