@@ -27,7 +27,7 @@
   }
 }
 
-.interaction-animation{
+.interaction-animation {
   animation: interaction 0.5s ease-in-out infinite;
 }
 
@@ -40,5 +40,16 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(100%);
+  }
+}
+@keyframes slideUp {
+  to {
+    transform: translateY(0%);
   }
 }

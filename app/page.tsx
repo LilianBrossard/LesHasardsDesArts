@@ -1,5 +1,5 @@
 "use client";
-// import Nav from "@/components/Nav";
+import Nav from "@/components/Nav";
 import FirstTitle from "@/components/FirstTitle";
 import Cover from "@/components/Cover";
 import InfiniteScroll from "@/components/InfiniteScroll";
@@ -16,7 +16,7 @@ export default function Home() {
             <Cover />
             <h1 className="sr-only">the serendipitys of arts home page</h1>
             <FirstTitle />
-            {/* <Nav /> */}
+            <Nav />
             <InfiniteScroll />
           </main>
         </AllLoadProvider>

@@ -66,7 +66,7 @@ export default function FirstTitle() {
       </div>
       <div className="absolute top-0 right-0 w-1/2 h-1/2 pointer-events-none -z-10">
         <Image
-          src="/images/cerisier1.png"
+          src="/images/cerisier1.jpg"
           alt="Cerisier"
           fill
           style={{ objectFit: "cover" }}
