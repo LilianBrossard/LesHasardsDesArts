@@ -1,16 +1,14 @@
 "use client";
 import TenArtworks from "@/components/TenArtworks";
-import { useRef, useContext, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import { createRoot } from "react-dom/client";
-import { InteractionContext } from "@/context/InteractionContext";
 
 export default function InfiniteScroll() {
-  const interactionContext = useContext(InteractionContext);
   const RefArtworkList = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const addArtwork = () => {
+  const addArtwork = useCallback(() => {
     if (isLoading) return;
 
     setIsLoading(true);
@@ -23,9 +21,10 @@ export default function InfiniteScroll() {
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
-  };
+  }, [isLoading]);
 
   useEffect(() => {
+    const trigger = triggerRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -41,16 +40,16 @@ export default function InfiniteScroll() {
       }
     );
 
-    if (triggerRef.current) {
-      observer.observe(triggerRef.current);
+    if (trigger) {
+      observer.observe(trigger);
     }
 
     return () => {
-      if (triggerRef.current) {
-        observer.unobserve(triggerRef.current);
+      if (trigger) {
+        observer.unobserve(trigger);
       }
     };
-  }, [isLoading]);
+  }, [isLoading, addArtwork]);
   return (
     <div className="w-full relative overflow-hidden px-4 lg:px-16">
       <div ref={RefArtworkList} className="w-full flex flex-col">
